@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import MockComponent from './MockComponent.tsx';
-import { MockDataInterface, getMockData } from './getMockData.ts';
+import MockComponentContainer from './MockComponentContainer.tsx';
 
 
 const App= () => {
@@ -11,6 +10,7 @@ const App= () => {
       <header className="App-header">
         <h1>Infinite Scroll</h1>
       </header>
+      <MockComponentContainer />
     </div>
   );
 }
