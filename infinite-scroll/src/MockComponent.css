@@ -28,3 +28,7 @@
     margin: 4px 0;
     color: #666;
 }
+
+.debug {
+    background-color: red;
+}

@@ -3,7 +3,7 @@ import './MockComponent.css';
 import { MockDataInterface } from './getMockData';
  
 
-const MockComponent: React.FC<{ data: MockDataInterface, index: number}> = ({ data, index }) => {
+const MockComponent: React.FC<{ data: MockDataInterface, index: number }> = ({ data, index }) => {
     return (
         <div className="mock-component">
             <h1>{index + 1}</h1>
