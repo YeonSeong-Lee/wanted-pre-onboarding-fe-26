@@ -1,0 +1,22 @@
+.mock-component {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-name {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.product-id,
+.price,
+.bought-date {
+    font-size: 1em;
+    margin: 4px 0;
+    color: #666;
+}
