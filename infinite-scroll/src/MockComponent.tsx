@@ -1,16 +1,9 @@
 import React from 'react';
 import './MockComponent.css';
-
-interface MockData {
-    productId: string;
-    productName: string;
-    price: number;
-    boughtDate: string;
-}
-
+import { MockDataInterface } from './getMockData';
  
 
-const MockComponent: React.FC<{ data: MockData }> = ({ data }) => {
+const MockComponent: React.FC<{ data: MockDataInterface }> = ({ data }) => {
     return (
         <div className="mock-component">
             <h2 className="product-name">{data.productName}</h2>

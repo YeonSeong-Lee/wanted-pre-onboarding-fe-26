@@ -1,11 +1,11 @@
-interface MockData {
+export interface MockDataInterface {
   productId: string;
   productName: string;
   price: number;
   boughtDate: string;
 }
 
-const MOCK_DATA: MockData[] = [
+const MOCK_DATA: MockDataInterface[] = [
   {
     productId: "66e1c1df3594bb65169e0f9b",
     productName: "Elegant Granite Fish",
@@ -736,7 +736,7 @@ export const getMockData = (pageNum: number) => {
   const PER_PAGE = 10;
   return new Promise((resolve) => {
     setTimeout(() => {
-      const datas: MockData[] = MOCK_DATA.slice(
+      const datas: MockDataInterface[] = MOCK_DATA.slice(
         PER_PAGE * pageNum,
         PER_PAGE * (pageNum + 1)
       );
