@@ -7,6 +7,14 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.mock-total-sum {
+    position: fixed;
+    bottom: 0;
+    font-size: 1.5em;
+    margin: 16px 0;
+    color: #333;
+}
+
 .product-name {
     font-size: 1.5em;
     margin-bottom: 8px;

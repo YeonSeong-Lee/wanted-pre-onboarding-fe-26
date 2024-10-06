@@ -5,6 +5,7 @@ import { MockDataInterface, getMockData } from './getMockData.ts';
 const MockComponentContainer: React.FC = () => {
     const [data, setData] = useState<MockDataInterface[]>([]);
     const [page, setPage] = useState(1);
+    const [totalSum, setTotalSum] = useState(0);
     const endFlag = useRef(false);
 
     useEffect(() => {
@@ -14,6 +15,9 @@ const MockComponentContainer: React.FC = () => {
                 return;
             }
             const { datas, isEnd } = await getMockData(page);
+            setTotalSum(() => {
+                return datas.reduce((acc, curr) => acc + curr.price, totalSum);
+            })
             endFlag.current = isEnd;
             setData(prevData => [...prevData, ...datas]);
         };
@@ -33,6 +37,7 @@ const MockComponentContainer: React.FC = () => {
 
     return (
         <div className="mock-component-container">
+            <h1 className="mock-total-sum">Total: ${totalSum}</h1>
             {data.map((item, index) => (
                 <MockComponent key={index} data={item} index={index} />
             ))}
