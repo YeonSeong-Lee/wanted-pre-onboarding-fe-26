@@ -17,10 +17,11 @@ const MockComponentContainer: React.FC = () => {
             return;
         }
         setIsLoading(true);
-        const { datas, isEnd } = await getMockData(page);
-        setTotalSum(() => {
-            return datas.reduce((acc, curr) => acc + curr.price, totalSum);
-        })
+        const { datas, isEnd } = await getMockData(1);
+        setTotalSum(prevTotalSum => {
+            return prevTotalSum + datas.reduce((acc, curr) => acc + curr.price, 0);
+        });
+        console.log('totalSum', totalSum);
         endFlag.current = isEnd;
         setData(prevData => [...prevData, ...datas]);
         setPage(prevPage => prevPage + 1);
@@ -30,16 +31,11 @@ const MockComponentContainer: React.FC = () => {
 
     const handleIntersect = useCallback(([entry]: IntersectionObserverEntry[]) => {
         if (entry.isIntersecting) {
+            // console.log('last element is intersecting');
             fetchData();
         }
     }
     , []);
-
-
-    // Fetch init data
-    useEffect(() => {
-        fetchData();
-    }, []);
 
 
     useEffect(() => {
