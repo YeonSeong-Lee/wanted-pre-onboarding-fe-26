@@ -5,6 +5,11 @@ export interface MockDataInterface {
   boughtDate: string;
 }
 
+export interface MockDataResponse {
+  datas: MockDataInterface[];
+  isEnd: boolean;
+}
+
 const MOCK_DATA: MockDataInterface[] = [
   {
     productId: "66e1c1df3594bb65169e0f9b",
@@ -732,15 +737,15 @@ const MOCK_DATA: MockDataInterface[] = [
  * });
  * ```
  */
-export const getMockData = (pageNum: number) => {
+export const getMockData = async (page: number): Promise<MockDataResponse> => {
   const PER_PAGE = 10;
   return new Promise((resolve) => {
     setTimeout(() => {
       const datas: MockDataInterface[] = MOCK_DATA.slice(
-        PER_PAGE * pageNum,
-        PER_PAGE * (pageNum + 1)
+        PER_PAGE * page,
+        PER_PAGE * (page + 1)
       );
-      const isEnd = PER_PAGE * (pageNum + 1) >= MOCK_DATA.length;
+      const isEnd = PER_PAGE * (page + 1) >= MOCK_DATA.length;
 
       resolve({ datas, isEnd });
     }, 1500);
